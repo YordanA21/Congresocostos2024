@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        
+        /* Crea un contenedor para mantener el formulario y agrega algunos estilos */
+        .container {
+            max-width: 600px; /* ajusta el ancho según sea necesario */
+            margin: 40px auto; /* centra el contenedor */
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* agrega una sombra sutil */
+            position: relative;
+        }
+        
+        /* Agrega algunos estilos a los elementos del formulario */
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        input[type="text"], input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+        }
+        
+        input[type="file"] {
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+        
+        /* Agrega algunos estilos a la imagen de banner */
+        .banner {
+            width: 100%;
+            height: 100px; /* ajusta la altura según sea necesario */
+            background-image: url('banner-image.jpg'); /* reemplaza con tu imagen de banner */
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 20px;
+        }
+        
+        /* Agrega una imagen sobre el contenedor */
+        .container::before {
+            content: "";
+            background-image: url('imagen-sobre-contenedor.jpg'); /* reemplaza con tu imagen */
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.2;
+            z-index: -1;
+        }
+        
+        /* Diseño responsivo para dispositivos móviles */
+        @media only screen and (max-width: 600px) {
+            .container {
+                width: 90%;
+                margin: 20px auto;
+            }
+            label {
+                font-size: 16px;
+            }
+            input[type="text"], input[type="email"] {
+                font-size: 16px;
+            }
+            button[type="submit"] {
+                font-size: 16px;
+            }
+        }
+        
+        /* Diseño responsivo para tabletas */
+        @media only screen and (min-width: 601px) and (max-width: 900px) {
+            .container {
+                width: 80%;
+                margin: 30px auto;
+            }
+            label {
+                font-size: 18px;
+            }
+            input[type="text"], input[type="email"] {
+                font-size: 18px;
+            }
+            button[type="submit"] {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="row d-flex justify-content-center text-center">
+        <div class="col-md-12">
+            <div id="logo" style="text-align: center;">
+                <a>
+                    <img src="img/logos/hover.svg" class="img-responsive" style="width:70%;display:inline-block;margin: 0 auto;">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h2>Formulario de Registro</h2>
+        <form action="send_email.php" method="POST" enctype="multipart/form-data">
+            <label for="nombre_apellido">Nombre y Apellido:</label>
+            <input type="text" id="nombre_apellido" name="nombre_apellido" required><br><br>
+            
+            <label for="telefono">Número de Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" required><br><br>
+            
+            <label for="rut">RUT:</label>
+            <input type="text" id="rut" name="rut" required pattern="[0-9]{7,8}-[0-9Kk]{1}" title="Ingrese un RUT válido (Ej: 12345678-9)"><br><br>
+            
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name=" email" required><br><br>
+            
+            <label for="pdf">Subir archivo PDF:</label>
+            <input type="file" id="pdf" name="pdf" accept=".pdf" required><br><br>
+            
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</body>
+</html>
